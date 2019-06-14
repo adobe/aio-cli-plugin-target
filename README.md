@@ -11,6 +11,9 @@ governing permissions and limitations under the License.
 -->
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/adobe/aio-cli-plugin-target/master.svg?style=flat-square)](https://codecov.io/gh/adobe/aio-cli-plugin-target/)
+
+
 
 # aio-cli-plugin-target
 Adobe Target Plugin for the [Adobe I/O CLI](https://github.com/adobe/aio-cli)
