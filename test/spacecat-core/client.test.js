@@ -20,7 +20,7 @@ test('init - mock error', async () => {
 })
 
 test('init - mock success', async () => {
-  let config = {
+  const config = {
     apiKey: 'spacecat-clientId',
     accessToken: 'spacecat-accessToken',
     tenantName: 'spacecat-tenantName'
@@ -29,29 +29,29 @@ test('init - mock success', async () => {
 })
 
 test('_deleteOffer - empty id', async () => {
-  expect(Client._deleteOffer(null)).rejects.toEqual(new Error('The id cannot be empty.'))
+  return expect(Client._deleteOffer(null)).rejects.toEqual(new Error('The id cannot be empty.'))
 })
 
 test('_getOffer - empty id', async () => {
-  expect(Client._getOffer(null)).rejects.toEqual(new Error('The id cannot be empty.'))
+  return expect(Client._getOffer(null)).rejects.toEqual(new Error('The id cannot be empty.'))
 })
 
 test('_createOffer - empty name', async () => {
-  expect(Client._createOffer(null, 'content', null)).rejects.toEqual(new Error('The name cannot be empty. Max length is 250 characters.'))
+  return expect(Client._createOffer(null, 'content', null)).rejects.toEqual(new Error('The name cannot be empty. Max length is 250 characters.'))
 })
 
 test('_createOffer - empty content', async () => {
-  expect(Client._createOffer('name', null, null)).rejects.toEqual(new Error('The content cannot be empty.'))
+  return expect(Client._createOffer('name', null, null)).rejects.toEqual(new Error('The content cannot be empty.'))
 })
 
 test('_updateOffer - empty id', async () => {
-  expect(Client._updateOffer(null, 'name', 'content')).rejects.toEqual(new Error('The id cannot be empty.'))
+  return expect(Client._updateOffer(null, 'name', 'content')).rejects.toEqual(new Error('The id cannot be empty.'))
 })
 
 test('_updateOffer - empty name', async () => {
-  expect(Client._updateOffer('id', null, 'content')).rejects.toEqual(new Error('The name cannot be empty. Max length is 250 characters.'))
+  return expect(Client._updateOffer('id', null, 'content')).rejects.toEqual(new Error('The name cannot be empty. Max length is 250 characters.'))
 })
 
 test('_updateOffer - empty content', async () => {
-  expect(Client._updateOffer('id', 'name', null)).rejects.toEqual(new Error('The content cannot be empty.'))
+  return expect(Client._updateOffer('id', 'name', null)).rejects.toEqual(new Error('The content cannot be empty.'))
 })

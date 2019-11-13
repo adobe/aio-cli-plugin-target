@@ -17,7 +17,7 @@ beforeEach(() => {
 
 test('list-offer - missing config', async () => {
   expect.assertions(2)
-  let runResult = ListOffersCommand.run([])
+  const runResult = ListOffersCommand.run([])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toEqual(new Error('missing config data: target'))
 })
@@ -32,9 +32,9 @@ test('list-offer - mock success', async () => {
   })
   expect.assertions(2)
   let runResult = ListOffersCommand.run([])
-  await expect(runResult).resolves.toEqual([{ 'id': '391769', 'name': '/l1_a_b_test/experiences/0/pages/0/zones/0/1489440825492', 'type': 'content', 'modifiedAt': '2017-03-20T03:03:28Z', 'workspace': '1234567' }, { 'id': '391902', 'name': '10OFF', 'type': 'content', 'modifiedAt': '2017-03-19T00:06:47Z', 'workspace': '1234567' }, { 'id': '391903', 'name': 'SHIPFREE', 'type': 'content', 'modifiedAt': '2017-03-19T00:06:29Z', 'workspace': '1234567' }, { 'id': '391904', 'name': '5OFF', 'type': 'content', 'modifiedAt': '2017-03-19T00:06:26Z', 'workspace': '1234567' }, { 'id': '391905', 'name': '/a1_-_l4206a_-_ab/experiences/0/pages/0/zones/0/1489468580249', 'type': 'content', 'modifiedAt': '2017-06-30T19:48:38Z', 'workspace': '1234567' }])
+  await expect(runResult).resolves.toEqual([{ id: '391769', name: '/l1_a_b_test/experiences/0/pages/0/zones/0/1489440825492', type: 'content', modifiedAt: '2017-03-20T03:03:28Z', workspace: '1234567' }, { id: '391902', name: '10OFF', type: 'content', modifiedAt: '2017-03-19T00:06:47Z', workspace: '1234567' }, { id: '391903', name: 'SHIPFREE', type: 'content', modifiedAt: '2017-03-19T00:06:29Z', workspace: '1234567' }, { id: '391904', name: '5OFF', type: 'content', modifiedAt: '2017-03-19T00:06:26Z', workspace: '1234567' }, { id: '391905', name: '/a1_-_l4206a_-_ab/experiences/0/pages/0/zones/0/1489468580249', type: 'content', modifiedAt: '2017-06-30T19:48:38Z', workspace: '1234567' }])
   runResult = ListOffersCommand.run(['-l=3', '-o=1', '-s=-id'])
-  await expect(runResult).resolves.toEqual([{ 'id': '391904', 'name': '5OFF', 'type': 'content', 'modifiedAt': '2017-03-19T00:06:26Z', 'workspace': '1234567' }, { 'id': '391903', 'name': 'SHIPFREE', 'type': 'content', 'modifiedAt': '2017-03-19T00:06:29Z', 'workspace': '1234567' }, { 'id': '391902', 'name': '10OFF', 'type': 'content', 'modifiedAt': '2017-03-19T00:06:47Z', 'workspace': '1234567' }])
+  await expect(runResult).resolves.toEqual([{ id: '391904', name: '5OFF', type: 'content', modifiedAt: '2017-03-19T00:06:26Z', workspace: '1234567' }, { id: '391903', name: 'SHIPFREE', type: 'content', modifiedAt: '2017-03-19T00:06:29Z', workspace: '1234567' }, { id: '391902', name: '10OFF', type: 'content', modifiedAt: '2017-03-19T00:06:47Z', workspace: '1234567' }])
 })
 
 test('list-offer - mock error', async () => {
@@ -46,6 +46,6 @@ test('list-offer - mock error', async () => {
     }
   })
   expect.assertions(1)
-  let runResult = ListOffersCommand.run([])
+  const runResult = ListOffersCommand.run([])
   await expect(runResult).rejects.toThrow()
 })

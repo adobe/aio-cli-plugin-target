@@ -12,7 +12,7 @@ const { getApiKey, getAccessToken } = require('../spacecat-core/adobe-helpers')
 const { getTenantName } = require('../spacecat-core/adobe-target-helpers')
 const Client = require('../spacecat-core/client')
 
-let AdobeTarget = {
+const AdobeTarget = {
 
   init: function () {
     const config = {
