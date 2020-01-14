@@ -17,7 +17,7 @@ beforeEach(() => {
 
 test('update-offer - missing config', async () => {
   expect.assertions(2)
-  let runResult = UpdateOfferCommand.run(['438180', 'Your existing offer', 'Updated Content'])
+  const runResult = UpdateOfferCommand.run(['438180', 'Your existing offer', 'Updated Content'])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toEqual(new Error('missing config data: target'))
 })
@@ -31,7 +31,7 @@ test('update-offer - missing id', async () => {
     }
   })
   expect.assertions(2)
-  let runResult = UpdateOfferCommand.run([])
+  const runResult = UpdateOfferCommand.run([])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toThrow()
 })
@@ -46,7 +46,7 @@ test('update-offer - mock parameter scenarios', async () => {
   })
   expect.assertions(2)
   let runResult = UpdateOfferCommand.run(['438180', 'Your existing offer', '<div>Updated content</div>'])
-  await expect(runResult).resolves.toEqual({ 'id': '438180', 'name': 'Your existing offer', 'content': '<div>Updated content</div>', 'modifiedAt': '2017-07-10T20:55:41Z' })
+  await expect(runResult).resolves.toEqual({ id: '438180', name: 'Your existing offer', content: '<div>Updated content</div>', modifiedAt: '2017-07-10T20:55:41Z' })
   runResult = UpdateOfferCommand.run(['438181', 'Your existing offer', '<div>Updated content</div>'])
   await expect(runResult).rejects.toThrow()
 })

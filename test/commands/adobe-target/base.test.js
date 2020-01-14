@@ -22,22 +22,22 @@ test('getAdobeTarget', () => {
   expect(function testGetAdobeTarget () { new BaseCommand().getAdobeTarget() }).toThrow(new Error('missing config data: target.tenantName'))
   config.get.mockImplementation(() => {
     return {
-      'tenantName': 'spacecat-tenantName'
+      tenantName: 'spacecat-tenantName'
     }
   })
   expect(function testGetAdobeTarget () { new BaseCommand().getAdobeTarget() }).toThrow(new Error('missing config data: jwt-auth.access_token'))
   config.get.mockImplementation(() => {
     return {
-      'tenantName': 'spacecat-tenantName',
-      'access_token': 'spacecat-accessToken'
+      tenantName: 'spacecat-tenantName',
+      access_token: 'spacecat-accessToken'
     }
   })
   expect(function testGetAdobeTarget () { new BaseCommand().getAdobeTarget() }).toThrow(new Error('missing config data: jwt-auth.client_id'))
   config.get.mockImplementation(() => {
     return {
-      'tenantName': 'spacecat-tenantName',
-      'access_token': 'spacecat-accessToken',
-      'client_id': 'spacecat-clientId'
+      tenantName: 'spacecat-tenantName',
+      access_token: 'spacecat-accessToken',
+      client_id: 'spacecat-clientId'
     }
   })
   expect(new BaseCommand().getAdobeTarget()).toBeTruthy()

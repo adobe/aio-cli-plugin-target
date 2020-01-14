@@ -17,7 +17,7 @@ beforeEach(() => {
 
 test('create-offer - missing config', async () => {
   expect.assertions(2)
-  let runResult = CreateOfferCommand.run(['myOffer', 'myContent'])
+  const runResult = CreateOfferCommand.run(['myOffer', 'myContent'])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toEqual(new Error('missing config data: target'))
 })
@@ -47,7 +47,7 @@ test('create-offer - mock parameter scenarios', async () => {
   })
   expect.assertions(3)
   let runResult = CreateOfferCommand.run(['My new offer', '<div>The content of the offer</div>', '-w=1234567'])
-  await expect(runResult).resolves.toEqual({ 'id': '438180', 'name': 'My new offer', 'content': '<div>The content of the offer</div>', 'modifiedAt': '2017-07-10T20:46:53Z', 'workspace': '1234567' })
+  await expect(runResult).resolves.toEqual({ id: '438180', name: 'My new offer', content: '<div>The content of the offer</div>', modifiedAt: '2017-07-10T20:46:53Z', workspace: '1234567' })
   runResult = CreateOfferCommand.run(['My new offer', '<div>The content of the offer</div>', '-w=12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901'])
   await expect(runResult).rejects.toThrow(new Error('The workspace max length is 250 characters.'))
   runResult = CreateOfferCommand.run(['My new offer', '-w=1234567'])
@@ -63,6 +63,6 @@ test('create-offer - mock error', async () => {
     }
   })
   expect.assertions(1)
-  let runResult = CreateOfferCommand.run(['-n=My new offer', '-c=<div>The content of the offer</div>', '-w=1234567'])
+  const runResult = CreateOfferCommand.run(['-n=My new offer', '-c=<div>The content of the offer</div>', '-w=1234567'])
   await expect(runResult).rejects.toThrow()
 })

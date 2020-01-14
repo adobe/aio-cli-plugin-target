@@ -47,13 +47,13 @@ test('getTenantName', () => {
   expect(function testTenantName () { getTenantName() }).toThrow(new Error('missing config data: target.tenantName'))
   config.get.mockImplementation(() => {
     return {
-      'tenantName': ''
+      tenantName: ''
     }
   })
   expect(function testTenantName () { getTenantName() }).toThrow(new Error('missing config data: target.tenantName'))
   config.get.mockImplementation(() => {
     return {
-      'tenantName': 'spacecat'
+      tenantName: 'spacecat'
     }
   })
   expect(getTenantName()).toEqual('spacecat')

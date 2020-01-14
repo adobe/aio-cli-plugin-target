@@ -17,7 +17,7 @@ beforeEach(() => {
 
 test('get-offer - missing config', async () => {
   expect.assertions(2)
-  let runResult = GetOfferCommand.run(['438180'])
+  const runResult = GetOfferCommand.run(['438180'])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toEqual(new Error('missing config data: target'))
 })
@@ -31,7 +31,7 @@ test('get-offer - missing id', async () => {
     }
   })
   expect.assertions(2)
-  let runResult = GetOfferCommand.run([])
+  const runResult = GetOfferCommand.run([])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toThrow()
 })
@@ -46,7 +46,7 @@ test('get-offer - mock parameter scenarios', async () => {
   })
   expect.assertions(2)
   let runResult = GetOfferCommand.run(['391902'])
-  await expect(runResult).resolves.toEqual({ 'id': '391902', 'name': '10OFF', 'content': 'Use 10OFF for $10 off for orders over $100', 'modifiedAt': '2017-03-19T00:06:47Z', 'workspace': '1234567' })
+  await expect(runResult).resolves.toEqual({ id: '391902', name: '10OFF', content: 'Use 10OFF for $10 off for orders over $100', modifiedAt: '2017-03-19T00:06:47Z', workspace: '1234567' })
   runResult = GetOfferCommand.run(['123123'])
   await expect(runResult).rejects.toThrow()
 })

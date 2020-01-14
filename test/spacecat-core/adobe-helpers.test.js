@@ -29,13 +29,13 @@ test('getApiKey', () => {
   expect(function testApiKey () { getApiKey() }).toThrow(new Error('missing config data: jwt-auth.client_id'))
   config.get.mockImplementation(() => {
     return {
-      'client_id': ''
+      client_id: ''
     }
   })
   expect(function testApiKey () { getApiKey() }).toThrow(new Error('missing config data: jwt-auth.client_id'))
   config.get.mockImplementation(() => {
     return {
-      'client_id': 'spacecat'
+      client_id: 'spacecat'
     }
   })
   expect(getApiKey()).toEqual('spacecat')
@@ -48,13 +48,13 @@ test('getAccessToken', () => {
   expect(function testAccessToken () { getAccessToken() }).toThrow(new Error('missing config data: jwt-auth.access_token'))
   config.get.mockImplementation(() => {
     return {
-      'access_token': ''
+      access_token: ''
     }
   })
   expect(function testAccessToken () { getAccessToken() }).toThrow(new Error('missing config data: jwt-auth.access_token'))
   config.get.mockImplementation(() => {
     return {
-      'access_token': 'spacecat'
+      access_token: 'spacecat'
     }
   })
   expect(getAccessToken()).toEqual('spacecat')

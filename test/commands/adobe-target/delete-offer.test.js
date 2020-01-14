@@ -17,7 +17,7 @@ beforeEach(() => {
 
 test('delete-offer - missing config', async () => {
   expect.assertions(2)
-  let runResult = DeleteOfferCommand.run(['438180'])
+  const runResult = DeleteOfferCommand.run(['438180'])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toEqual(new Error('missing config data: target'))
 })
@@ -31,7 +31,7 @@ test('delete-offer - missing id', async () => {
     }
   })
   expect.assertions(2)
-  let runResult = DeleteOfferCommand.run([])
+  const runResult = DeleteOfferCommand.run([])
   await expect(runResult instanceof Promise).toBeTruthy()
   await expect(runResult).rejects.toThrow()
 })
@@ -46,7 +46,7 @@ test('delete-offer - mock parameter scenarios', async () => {
   })
   expect.assertions(2)
   let runResult = DeleteOfferCommand.run(['438180'])
-  await expect(runResult).resolves.toEqual({ 'id': '438180', 'name': 'Your existing offer', 'content': '<div>Updated content</div>', 'modifiedAt': '2017-07-10T20:55:41Z', 'workspace': '1234567' })
+  await expect(runResult).resolves.toEqual({ id: '438180', name: 'Your existing offer', content: '<div>Updated content</div>', modifiedAt: '2017-07-10T20:55:41Z', workspace: '1234567' })
   runResult = DeleteOfferCommand.run(['438181'])
   await expect(runResult).rejects.toThrow()
 })

@@ -14,7 +14,7 @@ const { isEmpty } = require('./adobe-helpers')
 const { endPoints, baseUrl } = require('./adobe-target-constants')
 const { isValidOfferName, isValidOfferContent, isValidWorkspace } = require('./adobe-target-helpers')
 
-let Client = {
+const Client = {
   tenantName: null,
   accessToken: null,
   apiKey: null,
@@ -32,7 +32,7 @@ let Client = {
     const options = {
       method: method,
       headers: {
-        'authorization': `Bearer ${this.accessToken}`,
+        authorization: `Bearer ${this.accessToken}`,
         'cache-control': 'no-cache',
         'content-type': contentType,
         'x-api-key': this.apiKey
@@ -61,7 +61,7 @@ let Client = {
   },
 
   _listOffers: async function (limit, offset, sortBy) {
-    let listOffersUrl = new URL(`${baseUrl}${this.tenantName}${endPoints.targetOffers.name}`)
+    const listOffersUrl = new URL(`${baseUrl}${this.tenantName}${endPoints.targetOffers.name}`)
     if (limit) {
       listOffersUrl.searchParams.append(endPoints.targetOffers.parameters.limit, limit)
     }
