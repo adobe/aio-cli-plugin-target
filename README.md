@@ -18,6 +18,7 @@ governing permissions and limitations under the License.
 # aio-cli-plugin-target
 Adobe Target Plugin for the [Adobe I/O CLI](https://github.com/adobe/aio-cli)
 <!-- toc -->
+* [aio-cli-plugin-target](#aio-cli-plugin-target)
 * [Configuration](#configuration)
 * [Usage](#usage)
 * [Commands](#commands)
@@ -25,7 +26,7 @@ Adobe Target Plugin for the [Adobe I/O CLI](https://github.com/adobe/aio-cli)
 # Configuration
 <!-- configuration -->
 
-Setup the configuration according to https://github.com/adobe/aio-cli-config/. The configuration must define the following data:
+Setup the configuration according to https://github.com/adobe/aio-lib-core-config/. The configuration must define the following data:
 
 ```sh-session
 {
@@ -49,36 +50,23 @@ Setup the configuration according to https://github.com/adobe/aio-cli-config/. T
 }
 ```
 <!-- configurationstop -->
+
 # Usage
-<!-- usage -->
 ```sh-session
-$ npm install -g @adobe/aio-cli-plugin-target
-$ aio-edge jwt-auth:access-token --bare
-$ ./bin/run COMMAND
-running command...
-$ ./bin/run (-v|--version|version)
-@adobe/aio-cli-plugin-target/0.0.1 darwin-x64 node-v8.10.0
-$ ./bin/run --help [COMMAND]
-USAGE
-  $ ./bin/run COMMAND
-...
+$ aio plugins:install -g @adobe/aio-cli-plugin-target
+$ # OR
+$ aio discover -i
+$ aio target --help
 ```
-<!-- usagestop -->
+
 # Commands
 <!-- commands -->
-* [`./bin/run adobe-target:list-offers`](#binrun-adobe-target-list-offers)
-* [`./bin/run adobe-target:get-offer`](#binrun-adobe-target-get-offer)
-* [`./bin/run adobe-target:create-offer`](#binrun-adobe-target-create-offer)
-* [`./bin/run adobe-target:update-offer`](#binrun-adobe-target-update-offer)
-* [`./bin/run adobe-target:delete-offer`](#binrun-adobe-target-delete-offers)
-
-## `./bin/run adobe-target:list-offers`
 
 Retrieves the list of previously-created content offers. The flags are optional and are used to indicate the sorting and filtering options.
 
 ```
 USAGE
-  $ ./bin/run adobe-target:list-offers
+  $ aio adobe-target:list-offers
 
 OPTIONS
   -l, --limit=limit  Defines the number of items to return. Default value is 2147483647.
@@ -93,13 +81,13 @@ EXAMPLES
 
 _See code: [src/commands/adobe-target/list-offers.js](./src/commands/adobe-target/list-offers.js)_
 
-## `./bin/run adobe-target:get-offer IDENTIFIER`
+## `aio adobe-target:get-offer IDENTIFIER`
 
 Retrieves the contents of an offer given an offer id.
 
 ```
 USAGE
-  $ ./bin/run adobe-target:get-offer IDENTIFIER
+  $ aio adobe-target:get-offer IDENTIFIER
 
 ARGUMENTS
   IDENTIFIER  The offer id
@@ -109,13 +97,13 @@ ARGUMENTS
 _See code: [src/commands/adobe-target/get-offer.js](./src/commands/adobe-target/get-offer.js)_
 
 
-## `./bin/run adobe-target:create-offer NAME CONTENT`
+## `aio adobe-target:create-offer NAME CONTENT`
 
 Creates a new content offer as defined by the request data.
 
 ```
 USAGE
-  $ ./bin/run adobe-target:create-offer NAME CONTENT -w=WORKSPACE
+  $ aio adobe-target:create-offer NAME CONTENT -w=WORKSPACE
 
 ARGUMENTS
   NAME  A string to identify the Offer. The name cannot be empty. Max length is 250 characters.
@@ -128,13 +116,13 @@ OPTIONS
 
 _See code: [src/commands/adobe-target/create-offer.js](./src/commands/adobe-target/create-offer.js)_
 
-## `./bin/run adobe-target:update-offer IDENTIFIER NAME CONTENT`
+## `aio adobe-target:update-offer IDENTIFIER NAME CONTENT`
 
 Updates the content offer referenced by the id specified in the URL.
 
 ```
 USAGE
-  $ ./bin/run adobe-target:update-offer IDENTIFIER NAME CONTENT
+  $ aio adobe-target:update-offer IDENTIFIER NAME CONTENT
 
 ARGUMENTSS
   IDENTIFIER  The identifier of the offer. The id cannot be empty.
@@ -145,13 +133,13 @@ ARGUMENTSS
 
 _See code: [src/commands/adobe-target/update-offer.js](./src/commands/adobe-target/update-offer.js)_
 
-## `./bin/run adobe-target:delete-offer IDENTIFIER`
+## `aio adobe-target:delete-offer IDENTIFIER`
 
 Updates the content offer referenced by the id specified in the URL.
 
 ```
 USAGE
-  $ ./bin/run adobe-target:delete-offer IDENTIFIER
+  $ aio adobe-target:delete-offer IDENTIFIER
 
 ARGUMENTS
   IDENTIFIER  The identifier of the offer. The id cannot be empty.
