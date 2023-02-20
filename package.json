@@ -23,7 +23,7 @@
     "codecov": "^3.5.0",
     "dedent-js": "^1.0.1",
     "eol": "^0.9.1",
-    "eslint": "^6.6.0",
+    "eslint": "^8.34.0",
     "eslint-config-oclif": "^3.1.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.13.10",
