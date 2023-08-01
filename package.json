@@ -34,7 +34,7 @@
     "fetch-mock": "^9.0.0",
     "jest": "^24.1.0",
     "jest-cli": "^24.8.0",
-    "jest-junit": "^9.0.0",
+    "jest-junit": "^16.0.0",
     "jest-plugin-fs": "^2.9.0",
     "stdout-stderr": "^0.1.9"
   },
