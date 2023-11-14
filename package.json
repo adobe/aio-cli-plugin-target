@@ -39,7 +39,7 @@
     "stdout-stderr": "^0.1.9"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=18"
   },
   "files": [
     "/oclif.manifest.json",
