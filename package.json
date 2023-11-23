@@ -38,9 +38,6 @@
     "jest-plugin-fs": "^2.9.0",
     "stdout-stderr": "^0.1.9"
   },
-  "engines": {
-    "node": ">=8.0.0"
-  },
   "files": [
     "/oclif.manifest.json",
     "/src"
