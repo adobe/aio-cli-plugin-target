@@ -17,7 +17,7 @@
     "@babel/preset-env": "^7.3.1",
     "@oclif/dev-cli": "^1",
     "@oclif/plugin-help": "^5.2.16",
-    "@oclif/test": "^1",
+    "@oclif/test": "^3",
     "babel-jest": "^24.1.0",
     "babel-runtime": "^6.26.0",
     "codecov": "^3.5.0",
